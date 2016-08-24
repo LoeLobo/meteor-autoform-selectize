@@ -167,14 +167,14 @@ Template.afSelectize.rendered = function () {
   if (isReactiveOptions) {
     var test = false;
     var selectize = this.$('select')[0].selectize;
-    this.autorun(function () {
+    this.autorun(function (e) {
       var items = Template.currentData().items;
       // FIXED double autorun
       // TODO may be computation.firstRun?
       test = !test;
-      if (test) {
+      //if (!e.firstRun) {
         _refreshSelectizeOptions(selectize, items);
-      }
+      //}
     });
   }
 };
